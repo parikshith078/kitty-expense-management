@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@leveluptuts/svelte-side-menu':
+        specifier: ^1.0.5
+        version: 1.0.7
+      '@leveluptuts/svelte-toy':
+        specifier: ^2.0.3
+        version: 2.0.3
       '@lucia-auth/adapter-prisma':
         specifier: ^4.0.1
         version: 4.0.1(@prisma/client@5.16.1(prisma@5.16.1))(lucia@3.2.0)
@@ -264,6 +270,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@leveluptuts/svelte-side-menu@1.0.7':
+    resolution: {integrity: sha512-+8ynGfoCEH62zALLAIuqy5gF2A+sEpZjJKk97Hj2GeufJFe2Eu8cW36yOx71WkZJKtBA3fwgI9Pkerbex6LpAw==}
+
+  '@leveluptuts/svelte-toy@2.0.3':
+    resolution: {integrity: sha512-A2pjSG4UQbWLffD3r3cC8zaNwtTmBoNJJ2TIlNzVtdlUXk1xrYtscMopB+N2ztHnfjlKWyIee4TEnF3OBVwIfQ==}
 
   '@lucia-auth/adapter-prisma@4.0.1':
     resolution: {integrity: sha512-3SztRhj1RAHbbhI/0aB7YC5zl6Z6aktPhkWpn2CHhiB03B9x/+A+M6pqJuAt1usU8PzkjVilgRPhrPymMar66A==}
@@ -1034,6 +1046,9 @@ packages:
   locate-character@3.0.0:
     resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
 
+  lodash.set@4.3.2:
+    resolution: {integrity: sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==}
+
   lru-cache@10.3.0:
     resolution: {integrity: sha512-CQl19J/g+Hbjbv4Y3mFNNXFEL/5t/KCg8POCuUqd4rMKjGG+j1ybER83hxV58zL+dFI1PTkt3GNFSHRt+d8qEQ==}
     engines: {node: 14 || >=16.14}
@@ -1685,6 +1700,12 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@leveluptuts/svelte-side-menu@1.0.7': {}
+
+  '@leveluptuts/svelte-toy@2.0.3':
+    dependencies:
+      lodash.set: 4.3.2
 
   '@lucia-auth/adapter-prisma@4.0.1(@prisma/client@5.16.1(prisma@5.16.1))(lucia@3.2.0)':
     dependencies:
@@ -2354,6 +2375,8 @@ snapshots:
   lines-and-columns@1.2.4: {}
 
   locate-character@3.0.0: {}
+
+  lodash.set@4.3.2: {}
 
   lru-cache@10.3.0: {}
 
