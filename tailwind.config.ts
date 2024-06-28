@@ -6,8 +6,8 @@ export default {
 	theme: {
 		colors: {
 			primary: "#424242",
-			gray: "#D7D7D7",
-			backgound: "#F5F5F5",
+			gray: "#F5F5F5",
+			backgound: "#FFFFFF",
 			blue: "#027BEF",
 			red: "#E53935",
 			green: "#00897B",
