@@ -2,5 +2,7 @@
 	import TopNavBar from '$lib/components/topNavBar.svelte'
 </script>
 
-<TopNavBar />
-<slot />
+<div class="flex h-full w-full flex-col">
+	<TopNavBar />
+	<slot />
+</div>

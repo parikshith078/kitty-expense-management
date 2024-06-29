@@ -2,9 +2,7 @@
 	import BottomNavBar from '$lib/components/bottomNavBar.svelte'
 </script>
 
-<div class="flex w-full flex-col h-full justify-between ">
+<div class="flex h-full w-full flex-col justify-between">
 	<slot />
-	<div>
-		<BottomNavBar />
-	</div>
+	<BottomNavBar />
 </div>
