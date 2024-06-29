@@ -31,6 +31,8 @@ model Transaction {
   catagory   Catagory                   @relation(fields: [catagoryId], references: [id])
   catagoryId String
   desc       String?
+  createdAt  DateTime @default(now())
+  modifiedAt DateTime @updatedAt
 }
 
 model Catagory {
