@@ -4,7 +4,13 @@
 	import leftArrow from '$lib/assets/top_nav_icons/leftArrow.svg'
 	import rightArrow from '$lib/assets/top_nav_icons/rightArrow.svg'
 	import calendarIcon from '$lib/assets/top_nav_icons/calendarIcon.svg'
-	import { Avatar } from 'bits-ui'
+	import { createAvatar, melt } from '@melt-ui/svelte'
+
+	const {
+		elements: { image, fallback }
+	} = createAvatar({
+		src: 'https://avatars.githubusercontent.com/u/90703086?v=4'
+	})
 </script>
 
 <div class="flex w-full flex-col gap-2">
@@ -15,9 +21,12 @@
 		</div>
 		<div class="flex items-center gap-4">
 			<img class="aspect-square h-7" src={searchIcon} alt="" />
-			<Avatar.Root class="flex aspect-square h-10 items-center justify-center rounded-full bg-gray">
-				<Avatar.Fallback>M</Avatar.Fallback>
-			</Avatar.Root>
+			<!-- Avatar -->
+			<div class="bg-neutral-100 flex aspect-square h-9 items-center justify-center rounded-full">
+				<img use:melt={$image} alt="Avatar" class="h-full w-full rounded-[inherit]" />
+				<span use:melt={$fallback} class="text-magnum-700 text-3xl font-medium">PA</span>
+			</div>
+			<!---->
 		</div>
 	</div>
 	<div class="flex justify-between px-6 py-4">
