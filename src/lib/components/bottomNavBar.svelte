@@ -2,7 +2,8 @@
 	import { PieChart, House, Settings } from 'lucide-svelte'
 </script>
 
-<nav class="z-50 h-16 w-full bg-backgound py-2 text-sm text-black shadow-inner">
+<!-- Component is absolute, taking app layout as relative -->
+<nav class="absolute bottom-0 z-50 h-16 w-full bg-backgound py-2 text-sm text-black shadow-inner">
 	<ul class="flex h-full items-center justify-between gap-4 px-7">
 		<li>
 			<a class="flex flex-col items-center" href="/report">

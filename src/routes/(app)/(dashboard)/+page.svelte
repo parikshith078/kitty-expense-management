@@ -7,7 +7,7 @@
 
 <div class="h-full space-y-4">
 	<HomeStats />
-	<div class="mx-auto flex h-[65vh] w-[92%] flex-col gap-4 overflow-auto ">
+	<div class="mx-auto flex h-full max-h-[75vh] w-[92%] flex-col gap-4 overflow-auto ">
 		<ListGoup transcationData={data.transactionData} />
 	</div>
 </div>
