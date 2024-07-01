@@ -5,10 +5,11 @@
 	import { fly } from 'svelte/transition'
 	import type * as Prisma from '@prisma/client'
 
-	export let inputValue = ''
+	export let inputValue: string
 	export let catagories: Prisma.Catagory[]
+
 	const compliedCatagories = catagories.map((item) => ({ value: item.name, label: item.name }))
-	console.log('compliedCatagories:', compliedCatagories)
+
 	let touchedInput = false
 
 	$: filteredOptions =
