@@ -1,12 +1,17 @@
 <script lang="ts">
 	import { ArrowLeftIcon, CheckIcon, CreditCardIcon, PiggyBankIcon } from 'lucide-svelte'
 	import { RadioGroup } from 'bits-ui'
+	import ComboBox from '$lib/components/ui/comboBox.svelte'
 	let transcationType: string = 'EXPENSE'
+
+	export let data
 </script>
 
 <div>
 	<div class="flex items-center gap-4 bg-gray px-4 py-3">
-		<ArrowLeftIcon />
+		<a href="/">
+			<ArrowLeftIcon />
+		</a>
 		<p>Add new</p>
 	</div>
 	<div class="space-y-6 px-4 py-6">
@@ -44,5 +49,6 @@
 				</RadioGroup.Item>
 			</div>
 		</RadioGroup.Root>
+		<ComboBox catagories={data.catagories} />
 	</div>
 </div>
