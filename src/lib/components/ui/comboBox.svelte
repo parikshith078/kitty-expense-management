@@ -10,6 +10,13 @@
 
 	const compliedCatagories = catagories.map((item) => ({ value: item.name, label: item.name }))
 
+	const getCategoryIdByName = (name: string) => {
+		const found = catagories.find((item) => item.name == name)
+		if (found) {
+			return found.id
+		}
+	}
+
 	let touchedInput = false
 
 	$: filteredOptions =
@@ -20,7 +27,7 @@
 			: compliedCatagories
 </script>
 
-<Combobox.Root items={filteredOptions} bind:inputValue bind:touchedInput>
+<Combobox.Root required items={filteredOptions} bind:inputValue bind:touchedInput>
 	<div class="relative">
 		<Combobox.Input
 			class="peer w-full rounded-md border border-[#9E9E9E] px-4 py-3 outline-blue"
@@ -35,7 +42,7 @@
 	</div>
 
 	<Combobox.Content
-		class="bg-background overflow-y-auto py-2 text-[#424242] max-h-[60vh]  shadow outline-none"
+		class="z-10 max-h-[60vh] overflow-y-auto bg-backgound py-2 text-[#424242]  shadow outline-none"
 		transition={fly}
 		sideOffset={8}
 	>
@@ -58,8 +65,9 @@
 				</Combobox.ItemIndicator>
 			</Combobox.Item>
 		{:else}
+			<!-- TODO: Add new option when no result found -->
 			<span class="block px-5 py-2 text-sm text-muted-foreground"> No results found </span>
 		{/each}
 	</Combobox.Content>
-	<Combobox.HiddenInput name="favoriteFruit" />
+	<Combobox.HiddenInput value={getCategoryIdByName(inputValue)} name="categoryId" />
 </Combobox.Root>
