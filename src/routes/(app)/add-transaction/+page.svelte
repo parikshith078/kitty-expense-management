@@ -4,6 +4,7 @@
 	import { ArrowLeftIcon } from 'lucide-svelte'
 
 	export let data
+	export let form
 
 	let transcationType: string = 'EXPENSE'
 	let inputValue: string
@@ -39,4 +40,10 @@
 			type="submit">Add an {transcationType.toLowerCase()}</button
 		>
 	</form>
+
+	{#if form}
+		<pre> 
+      {JSON.stringify(form, null, 2)}
+    </pre>
+	{/if}
 </div>
