@@ -58,11 +58,12 @@ self.addEventListener("fetch", (event) => {
 			if (!(response instanceof Response)) {
 				throw new Error("invalid response from fetch");
 			}
-
+			const isNotExtension = url.protocol === "http:";
 			// caching the response
 			// Skiping add-transaction from caching
 			if (
 				response.status === 200 &&
+				isNotExtension &&
 				!url.pathname.includes("/add-transaction")
 			) {
 				cache.put(event.request, response.clone());

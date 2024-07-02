@@ -3,6 +3,7 @@
 
 	// import { DevTools, Visualize } from '$lib/devtools'
 	import '../app.css'
+	import { Toaster } from 'svelte-french-toast'
 
 	async function detectSWUpdate() {
 		const reg = await navigator.serviceWorker.ready
@@ -31,6 +32,7 @@
 <!-- <Visualize layout='root' > -->
 <main class="max-h-screen min-h-screen w-full overflow-y-hidden bg-backgound font-inter text-black">
 	<div class="container mx-auto">
+		<Toaster />
 		<slot />
 	</div>
 </main>

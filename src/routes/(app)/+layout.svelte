@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BottomNavBar from '$lib/components/bottomNavBar.svelte'
-	import { Visualize } from '$lib/devtools'
+	// import { Visualize } from '$lib/devtools'
 </script>
 
 <!-- <Visualize layout="App"> -->
