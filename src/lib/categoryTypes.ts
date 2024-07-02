@@ -60,3 +60,10 @@ export const CategoryIcons = {
 	Sport,
 	Transportation,
 };
+
+export function getCatagoryIcon(name: string | CategoryType) {
+	if (CategoryIcons.hasOwnProperty(name)) {
+		return CategoryIcons[name as keyof typeof CategoryIcons];
+	}
+	return "";
+}

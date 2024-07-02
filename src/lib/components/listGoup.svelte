@@ -1,11 +1,7 @@
 <script lang="ts">
+	import type { transcationAndCategory } from '$lib/dbtypes'
 	import ListItem from './listItem.svelte'
-	import type * as Prisma from '@prisma/client'
-	type Category = {
-		catagory: Prisma.Catagory
-	}
 
-	type transcationAndCategory = Prisma.Transaction & Category
 	export let transcationData: transcationAndCategory[]
 
 	const getTodaysTotal = (data: transcationAndCategory[]) => {
