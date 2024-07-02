@@ -3,10 +3,11 @@
 </script>
 
 <div class="fixed bottom-24 z-0 flex w-full items-center justify-center">
-	<button
+	<a
+    href="/add-transaction"
 		class="text-white z-50 flex items-center justify-center transition gap-[6px] rounded-full bg-[#007BEF] px-5 py-4 drop-shadow-lg hover:bg-[#006ADD] active:bg-[#0041AE] disabled:bg-[#E0E0E0] disabled:text-[#A6A6A6]"
 	>
 		<img src={plusIcon} alt="" />
 		<span>Add new</span>
-	</button>
+	</a>
 </div>

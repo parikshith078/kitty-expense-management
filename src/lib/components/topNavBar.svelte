@@ -16,7 +16,8 @@
 		<div class="flex items-center gap-4">
 			<img class="aspect-square h-7" src={searchIcon} alt="" />
 			<Avatar.Root class="flex aspect-square h-10 items-center justify-center rounded-full bg-gray">
-				<Avatar.Fallback>M</Avatar.Fallback>
+        <Avatar.Image class="rounded-full" src='https://avatars.githubusercontent.com/u/90703086?v=4' alt='profile' />
+				<Avatar.Fallback>P</Avatar.Fallback>
 			</Avatar.Root>
 		</div>
 	</div>
