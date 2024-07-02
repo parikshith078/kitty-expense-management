@@ -1,12 +1,12 @@
 <script lang="ts">
 	import HomeStats from '$lib/components/homeStats'
 	import ListGoup from '$lib/components/listGoup.svelte'
-	import type { transcationAndCategory } from '$lib/dbtypes'
+	import type { TranscationAndCategory } from '$lib/dbtypes'
 
 	export let data
 
 	type SortedByDayType = {
-		[key: number]: transcationAndCategory[]
+		[key: number]: TranscationAndCategory[]
 	}
 
 	const sortDataByday = () => {
@@ -27,7 +27,7 @@
 </script>
 
 <div class="h-full space-y-4">
-	<HomeStats />
+	<HomeStats transactionData={data.transactionData} />
 	<div class="mx-auto flex h-full max-h-[75vh] w-[92%] flex-col gap-4 overflow-auto">
 		{#each ordered as key}
 			<ListGoup transcationData={sortedData[parseInt(key)]} />

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { transcationAndCategory } from '$lib/dbtypes'
+	import type { TranscationAndCategory } from '$lib/dbtypes'
 	import { formatDate } from '$lib/utils'
 	import ListItem from './listItem.svelte'
 
-	export let transcationData: transcationAndCategory[]
+	export let transcationData: TranscationAndCategory[]
 
-	const getTodaysTotal = (data: transcationAndCategory[]) => {
+	const getTodaysTotal = (data: TranscationAndCategory[]) => {
 		let income = 0
 		let expense = 0
 
@@ -19,9 +19,9 @@
 
 		const total = income - expense
 		if (total > 0) {
-			return '+ ₹' + total
+			return '+ ₹' + Math.round(total).toLocaleString("en-IN")
 		} else {
-			return '- ₹' + Math.abs(total)
+			return '- ₹' + Math.abs(Math.round(total)).toLocaleString("en-IN")
 		}
 	}
 </script>

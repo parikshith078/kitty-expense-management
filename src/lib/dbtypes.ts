@@ -4,4 +4,4 @@
 		catagory: Prisma.Catagory
 	}
 
-export type transcationAndCategory = Prisma.Transaction & Category
+export type TranscationAndCategory = Prisma.Transaction & Category
