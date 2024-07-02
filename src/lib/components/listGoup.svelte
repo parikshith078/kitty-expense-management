@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { transcationAndCategory } from '$lib/dbtypes'
+	import { formatDate } from '$lib/utils'
 	import ListItem from './listItem.svelte'
 
 	export let transcationData: transcationAndCategory[]
@@ -27,7 +28,7 @@
 
 <div class="rounded-lg border border-[#E0E0E0] p-2">
 	<div class="flex justify-between p-2 text-[10px] font-medium tracking-[1.5px] text-[#424242]">
-		<p>TODAY</p>
+		<p>{formatDate(transcationData[0].createdAt)}</p>
 		<p>{getTodaysTotal(transcationData)}</p>
 	</div>
 	{#each transcationData as transcation}
