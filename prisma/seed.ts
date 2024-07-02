@@ -39,7 +39,8 @@ async function seedCategory() {
 	}
 }
 
-async function main() {
+async function seedTranscation(){
+
 	const cate = [
 		"02015e33-42df-465f-a90d-8a7433123e36",
 		"b0fd1816-585f-49f0-b576-5aba0120b53d",
@@ -63,6 +64,10 @@ async function main() {
 	} catch (err) {
 		console.error(err);
 	}
+}
+
+async function main() {
+  await seedCategory()
 }
 
 main()

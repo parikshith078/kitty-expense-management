@@ -46,20 +46,20 @@
 		transition={fly}
 		sideOffset={8}
 	>
-		{#each filteredOptions as fruit (fruit.value)}
+		{#each filteredOptions as option }
 			<Combobox.Item
 				class="flex h-10 w-full select-none items-center py-3 pl-5 pr-1.5 text-sm capitalize outline-none transition-all duration-75 data-[highlighted]:bg-gray data-[highlighted]:text-black"
-				value={fruit.value}
-				label={fruit.label}
+				value={option.value}
+				label={option.label}
 			>
 				<Avatar.Root class="mr-2">
-					<Avatar.Image src={getCatagoryIcon(fruit.value)} class="h-7" alt="profile" />
+					<Avatar.Image src={getCatagoryIcon(option.value)} class="h-7" alt="profile" />
 					<Avatar.Fallback
 						class="flex  aspect-square h-7  items-center justify-center rounded-full bg-gray"
-						>C</Avatar.Fallback
+						>{option.label.charAt(0).toUpperCase()}</Avatar.Fallback
 					>
 				</Avatar.Root>
-				{fruit.label}
+				{option.label}
 				<Combobox.ItemIndicator class="ml-auto" asChild={false}>
 					<Check />
 				</Combobox.ItemIndicator>
