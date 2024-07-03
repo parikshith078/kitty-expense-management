@@ -6,7 +6,7 @@
 <!-- Component is fixed, taking app layout as relative -->
 <nav
 	class:hidden={$page.url.pathname == '/add-transaction'}
-	class="fixed container bottom-0 z-50 h-16 w-full bg-backgound py-2 text-sm text-black shadow-inner"
+	class="container fixed bottom-0 z-50 h-16 w-full bg-backgound py-2 text-sm text-black shadow-inner"
 >
 	<ul class="flex h-full items-center justify-between gap-4 px-7">
 		<li>

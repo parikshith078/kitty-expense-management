@@ -1,15 +1,15 @@
-import { PrismaClient } from "@prisma/client";
-import { faker } from "@faker-js/faker";
-import type { CategoryType } from "./categoryTypes";
+import { PrismaClient } from '@prisma/client'
+import { faker } from '@faker-js/faker'
+import type { CategoryType } from './categoryTypes'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 type ListTranscationItemType = {
-	desc: string;
-	category: CategoryType;
-	amount: number;
-	transcationType: "expense" | "income";
-};
+	desc: string
+	category: CategoryType
+	amount: number
+	transcationType: 'expense' | 'income'
+}
 
 async function main() {
 	// await prisma.note.deleteMany()
@@ -25,10 +25,10 @@ async function main() {
 
 main()
 	.then(async () => {
-		await prisma.$disconnect();
+		await prisma.$disconnect()
 	})
 	.catch(async (e) => {
-		console.error(e);
-		await prisma.$disconnect();
-		process.exit(1);
-	});
+		console.error(e)
+		await prisma.$disconnect()
+		process.exit(1)
+	})

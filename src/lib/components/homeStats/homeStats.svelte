@@ -22,9 +22,12 @@
 		})
 
 		return {
-			income: `₹${Math.round(income).toLocaleString("en-IN")}`,
-			expense: `-₹${Math.round(expense).toLocaleString("en-IN")}`,
-			balance: balance > 0 ? `₹${Math.round(balance).toLocaleString("en-IN")}` : `-₹${Math.abs(Math.round(balance)).toLocaleString("en-IN")}`
+			income: `₹${Math.round(income).toLocaleString('en-IN')}`,
+			expense: `-₹${Math.round(expense).toLocaleString('en-IN')}`,
+			balance:
+				balance > 0
+					? `₹${Math.round(balance).toLocaleString('en-IN')}`
+					: `-₹${Math.abs(Math.round(balance)).toLocaleString('en-IN')}`
 		}
 	}
 

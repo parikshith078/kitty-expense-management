@@ -27,6 +27,6 @@
 		class:text-red={transcationType == 'EXPENSE'}
 		class:text-green={transcationType == 'INCOME'}
 	>
-		{transcationType == 'INCOME' ? '+' : '-'} ₹{Math.round(amount).toLocaleString("en-IN")}
+		{transcationType == 'INCOME' ? '+' : '-'} ₹{Math.round(amount).toLocaleString('en-IN')}
 	</p>
 </div>

@@ -1,27 +1,11 @@
 <script lang="ts">
 	import HomeStats from '$lib/components/homeStats'
-	import ListGoup from '$lib/components/listGoup.svelte'
-	import type { TranscationAndCategory } from '$lib/dbtypes'
+  import ListGroup from '$lib/components/listGroup'
+	import { getSortDataByday } from '$lib/utils.js'
 
 	export let data
 
-	type SortedByDayType = {
-		[key: number]: TranscationAndCategory[]
-	}
-
-	const sortDataByday = () => {
-		const transcations = data.transactionData
-		const sortedData: SortedByDayType = {}
-
-		transcations.map((item) => {
-			if (sortedData[item.createdAt.getDate()] == undefined) {
-				sortedData[item.createdAt.getDate()] = []
-			}
-			sortedData[item.createdAt.getDate()].push(item)
-		})
-		return sortedData
-	}
-	const sortedData = sortDataByday()
+	const sortedData = getSortDataByday(data.transactionData)
 	// Just to get the object in reverse order. such that today is on the top
 	const ordered = Object.keys(sortedData).reverse()
 </script>
@@ -30,7 +14,7 @@
 	<HomeStats transactionData={data.transactionData} />
 	<div class="mx-auto flex h-full max-h-[75vh] w-[92%] flex-col gap-4 overflow-auto">
 		{#each ordered as key}
-			<ListGoup transcationData={sortedData[parseInt(key)]} />
+			<ListGroup transcationData={sortedData[parseInt(key)]} />
 		{/each}
 	</div>
 </div>

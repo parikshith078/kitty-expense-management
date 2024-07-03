@@ -2,28 +2,9 @@
 	import type { TranscationAndCategory } from '$lib/dbtypes'
 	import { formatDate } from '$lib/utils'
 	import ListItem from './listItem.svelte'
+	import { getTodaysTotal } from './utils'
 
 	export let transcationData: TranscationAndCategory[]
-
-	const getTodaysTotal = (data: TranscationAndCategory[]) => {
-		let income = 0
-		let expense = 0
-
-		data.map((item) => {
-			if (item.type == 'EXPENSE') {
-				expense += item.amount
-			} else {
-				income += item.amount
-			}
-		})
-
-		const total = income - expense
-		if (total > 0) {
-			return '+ ₹' + Math.round(total).toLocaleString("en-IN")
-		} else {
-			return '- ₹' + Math.abs(Math.round(total)).toLocaleString("en-IN")
-		}
-	}
 </script>
 
 <div class="rounded-lg border border-[#E0E0E0] p-2">

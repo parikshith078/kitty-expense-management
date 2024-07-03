@@ -1,37 +1,27 @@
-import type { PageServerLoad } from "./$types";
-import prisma from "$lib/server/prisma";
-import { fail, redirect, type Actions } from "@sveltejs/kit";
+import type { PageServerLoad } from './$types'
+import prisma from '$lib/server/prisma'
+import { fail, type Actions } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async () => {
-	const catagories = await prisma.catagory.findMany();
+	const catagories = await prisma.catagory.findMany()
 	return {
-		catagories,
-	};
-};
-// [
-//     {
-//       name: 'categoryId',
-//       value: '6c1e6c93-0164-4abb-a4a0-b5b78883ec10'
-//     },
-//     { name: 'transcationType', value: 'INCOME' },
-//     { name: 'amount', value: '546' },
-//     { name: 'desc', value: 'sf sfaf' }
-//   ]
-
+		catagories
+	}
+}
 export const actions: Actions = {
 	default: async (event) => {
 		if (!event.locals.user) {
 			return fail(400, {
-				message: "Unauthrized",
-			});
+				message: 'Unauthrized'
+			})
 		}
-		const formData = await event.request.formData();
-		const transcationType = formData.get("transcationType");
-		const categoryId = formData.get("categoryId");
-		const amount = formData.get("amount");
+		const formData = await event.request.formData()
+		const transcationType = formData.get('transcationType')
+		const categoryId = formData.get('categoryId')
+		const amount = formData.get('amount')
 
 		// desc is optional
-		const desc = formData.get("desc");
+		const desc = formData.get('desc')
 
 		// TODO: do validation with zod
 
@@ -42,15 +32,10 @@ export const actions: Actions = {
 		// }
 
 		// TODO: ambiguity with desc being optional
-		if (
-			categoryId == null ||
-			transcationType == null ||
-			desc == null ||
-			amount == null
-		) {
+		if (categoryId == null || transcationType == null || desc == null || amount == null) {
 			return fail(400, {
-				message: "Invalid input",
-			});
+				message: 'Invalid input'
+			})
 		}
 
 		await prisma.transaction
@@ -58,16 +43,16 @@ export const actions: Actions = {
 				data: {
 					amount: parseFloat(amount as string),
 					catagoryId: categoryId as string,
-					type: transcationType == "EXPENSE" ? "EXPENSE" : "INCOME",
+					type: transcationType == 'EXPENSE' ? 'EXPENSE' : 'INCOME',
 					userId: event.locals.user.id,
-					desc: desc as string,
-				},
+					desc: desc as string
+				}
 			})
 			.then(() => {
-				console.log("Created new transaction");
+				console.log('Created new transaction')
 			})
 			.catch((err) => {
-				console.error("Error while creating transaction: ", err);
-			});
-	},
-};
+				console.error('Error while creating transaction: ', err)
+			})
+	}
+}

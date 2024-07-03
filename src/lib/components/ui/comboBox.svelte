@@ -8,7 +8,7 @@
 	export let inputValue: string
 	export let catagories: Prisma.Catagory[]
 
-	const compliedCatagories = catagories.map((item) => ({ value: item.name, label: item.name }))
+	const compliedCatagories = catagories.map((item) => ({ value: item.name }))
 
 	const getCategoryIdByName = (name: string) => {
 		const found = catagories.find((item) => item.name == name)
@@ -46,20 +46,20 @@
 		transition={fly}
 		sideOffset={8}
 	>
-		{#each filteredOptions as option }
+		{#each filteredOptions as option}
 			<Combobox.Item
 				class="flex h-10 w-full select-none items-center py-3 pl-5 pr-1.5 text-sm capitalize outline-none transition-all duration-75 data-[highlighted]:bg-gray data-[highlighted]:text-black"
 				value={option.value}
-				label={option.label}
+				label={option.value}
 			>
 				<Avatar.Root class="mr-2">
 					<Avatar.Image src={getCatagoryIcon(option.value)} class="h-7" alt="profile" />
 					<Avatar.Fallback
 						class="flex  aspect-square h-7  items-center justify-center rounded-full bg-gray"
-						>{option.label.charAt(0).toUpperCase()}</Avatar.Fallback
+						>{option.value.charAt(0).toUpperCase()}</Avatar.Fallback
 					>
 				</Avatar.Root>
-				{option.label}
+				{option.value}
 				<Combobox.ItemIndicator class="ml-auto" asChild={false}>
 					<Check />
 				</Combobox.ItemIndicator>

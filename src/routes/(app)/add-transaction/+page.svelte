@@ -64,10 +64,4 @@
 			type="submit">Add an {transcationType.toLowerCase()}</button
 		>
 	</form>
-
-	{#if form}
-		<pre class="text-black"> 
-      {JSON.stringify(form, null, 2)}
-    </pre>
-	{/if}
 </div>

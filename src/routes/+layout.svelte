@@ -21,7 +21,6 @@
 			})
 		})
 	}
-
 	onMount(() => {
 		detectSWUpdate()
 	})
