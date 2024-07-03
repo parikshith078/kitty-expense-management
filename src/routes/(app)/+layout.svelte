@@ -4,8 +4,8 @@
 </script>
 
 <!-- <Visualize layout="App"> -->
-<div class="relative flex h-screen w-full flex-col justify-between">
+<div class="relative mb-16 flex w-full flex-col justify-between">
 	<slot />
-	<BottomNavBar />
 </div>
+<BottomNavBar />
 <!-- </Visualize> -->

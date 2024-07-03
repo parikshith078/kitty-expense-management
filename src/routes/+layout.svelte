@@ -29,8 +29,8 @@
 <!-- <DevTools /> -->
 
 <!-- <Visualize layout='root' > -->
-<main class="max-h-screen min-h-screen w-full overflow-y-hidden bg-backgound font-inter text-black">
-	<div class="container mx-auto">
+<main class=" min-h-screen w-full bg-backgound font-inter text-black">
+	<div class="container relative mx-auto">
 		<Toaster />
 		<slot />
 	</div>

@@ -16,7 +16,7 @@
 		return async ({ result, update }) => {
 			switch (result.type) {
 				case 'success':
-					toast.success(`New ${transcationType} added successfully!`)
+					toast.success(`${transcationType} added!`)
 					await update()
 					break
 				case 'error':

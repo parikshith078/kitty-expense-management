@@ -10,9 +10,13 @@
 	const sendToast = () => {
 		toast.success('It works!')
 	}
+	export let date = new Date()
+
+	const month = date.toLocaleDateString('en-us', { month: 'short' })
+	const year = date.toLocaleDateString('en-us', { year: 'numeric' })
 </script>
 
-<div class="flex w-full flex-col gap-2">
+<div class="flex container fixed bg-backgound w-full flex-col gap-2">
 	<div class="flex justify-between px-4 py-2">
 		<a href="/" class="flex items-center gap-1">
 			<img class="aspect-square h-6" src={logo} alt="" />
@@ -34,7 +38,7 @@
 		<button on:click={sendToast}><img src={leftArrow} alt="" /></button>
 		<button class="flex items-center gap-1 rounded-2xl bg-gray px-[13px] py-2 text-sm">
 			<img src={calendarIcon} alt="" />
-			<p>May, 2024</p>
+			<p>{month}, {year}</p>
 		</button>
 		<button><img src={rightArrow} alt="" /></button>
 	</div>

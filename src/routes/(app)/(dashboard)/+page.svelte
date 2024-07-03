@@ -1,6 +1,6 @@
 <script lang="ts">
 	import HomeStats from '$lib/components/homeStats'
-  import ListGroup from '$lib/components/listGroup'
+	import ListGroup from '$lib/components/listGroup'
 	import { getSortDataByday } from '$lib/utils.js'
 
 	export let data
@@ -12,7 +12,7 @@
 
 <div class="h-full space-y-4">
 	<HomeStats transactionData={data.transactionData} />
-	<div class="mx-auto flex h-full max-h-[75vh] w-[92%] flex-col gap-4 overflow-auto">
+	<div class="mx-auto flex h-full w-[92%] flex-col gap-4">
 		{#each ordered as key}
 			<ListGroup transcationData={sortedData[parseInt(key)]} />
 		{/each}
