@@ -7,7 +7,7 @@
 
 	export let transactionData: TranscationAndCategory[]
 
-	const getStats = () => {
+	const getStats = (transactionData: TranscationAndCategory[]) => {
 		let income = 0,
 			expense = 0,
 			balance = 0
@@ -31,7 +31,7 @@
 		}
 	}
 
-	const stats = getStats()
+	$: stats = getStats(transactionData)
 </script>
 
 <div class="mx-auto flex w-[92%] justify-between rounded-lg border border-[#E0E0E0] px-6 py-4">

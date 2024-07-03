@@ -15,12 +15,11 @@
 		return { month, year }
 	}
 
-	const current = getMonthYear(date)
-	const nextMonth = getNextMonthDate(date)
-	const prevMonth = getLastMonthDate(date)
-  const next = getMonthYear(nextMonth)
-  const prev = getMonthYear(prevMonth)
-
+	$: current = getMonthYear(date)
+	$: nextMonth = getNextMonthDate(date)
+	$: prevMonth = getLastMonthDate(date)
+	$: next = getMonthYear(nextMonth)
+	$: prev = getMonthYear(prevMonth)
 </script>
 
 <div class="container fixed flex w-full select-none flex-col gap-2 bg-backgound">

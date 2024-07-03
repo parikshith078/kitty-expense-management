@@ -3,11 +3,12 @@
 	// import { Visualize } from '$lib/devtools'
 	import FloatingActionButton from '$lib/components/floatingActionButton.svelte'
 	export let data
+	$: month = data.payload.month
 </script>
 
 <!-- <Visualize layout="Dashboard"> -->
 <div class="relative flex h-full w-full flex-col">
-	<TopNavBar date={data.payload.month} />
+	<TopNavBar date={month} />
 	<div class="mt-36">
 		<slot />
 	</div>
