@@ -5,7 +5,7 @@
 	export let text: string
 </script>
 
-<div class="flex flex-col items-center justify-center">
+<div class="flex select-none flex-col items-center justify-center">
 	<img src={icon} class="pb-[6px]" alt="" />
 	<p class={`text-sm  text-${textColor}`}>{amount}</p>
 	<p class="text-[12px] text-[#616161]">{text}</p>

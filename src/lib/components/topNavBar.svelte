@@ -16,7 +16,7 @@
 	const year = date.toLocaleDateString('en-us', { year: 'numeric' })
 </script>
 
-<div class="flex container fixed bg-backgound w-full flex-col gap-2">
+<div class="flex select-none container fixed bg-backgound w-full flex-col gap-2">
 	<div class="flex justify-between px-4 py-2">
 		<a href="/" class="flex items-center gap-1">
 			<img class="aspect-square h-6" src={logo} alt="" />

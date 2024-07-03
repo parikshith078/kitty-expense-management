@@ -3,9 +3,9 @@
 	"short_name": "Kitty",
 	"start_url": "/",
 	"display": "standalone",
-	"background_color": "#212121",
+	"background_color": "#FFFFFF",
 	"description": "Mobile first expense management pwa.",
-	"theme_color": "#212121",
+	"theme_color": "#FFFFFF",
 	"icons": [
 		{
 			"src": "pwa-64x64.png",
