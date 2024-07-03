@@ -5,18 +5,25 @@
 	import rightArrow from '$lib/assets/top_nav_icons/rightArrow.svg'
 	import calendarIcon from '$lib/assets/top_nav_icons/calendarIcon.svg'
 	import { Avatar } from 'bits-ui'
-	import toast from 'svelte-french-toast'
+	import { getLastMonthDate, getNextMonthDate } from '$lib/utils'
 
-	const sendToast = () => {
-		toast.success('It works!')
+	export let date: Date
+
+	const getMonthYear = (date: Date) => {
+		const month = date.toLocaleDateString('en-us', { month: 'short' })
+		const year = date.toLocaleDateString('en-us', { year: 'numeric' })
+		return { month, year }
 	}
-	export let date = new Date()
 
-	const month = date.toLocaleDateString('en-us', { month: 'short' })
-	const year = date.toLocaleDateString('en-us', { year: 'numeric' })
+	const current = getMonthYear(date)
+	const nextMonth = getNextMonthDate(date)
+	const prevMonth = getLastMonthDate(date)
+  const next = getMonthYear(nextMonth)
+  const prev = getMonthYear(prevMonth)
+
 </script>
 
-<div class="flex select-none container fixed bg-backgound w-full flex-col gap-2">
+<div class="container fixed flex w-full select-none flex-col gap-2 bg-backgound">
 	<div class="flex justify-between px-4 py-2">
 		<a href="/" class="flex items-center gap-1">
 			<img class="aspect-square h-6" src={logo} alt="" />
@@ -35,11 +42,11 @@
 		</div>
 	</div>
 	<div class="flex justify-between px-6 py-4">
-		<button on:click={sendToast}><img src={leftArrow} alt="" /></button>
+		<a href={`/${prev.month}_${prev.year}`}><img src={leftArrow} alt="" /></a>
 		<button class="flex items-center gap-1 rounded-2xl bg-gray px-[13px] py-2 text-sm">
 			<img src={calendarIcon} alt="" />
-			<p>{month}, {year}</p>
+			<p>{current.month}, {current.year}</p>
 		</button>
-		<button><img src={rightArrow} alt="" /></button>
+		<a href={`/${next.month}_${next.year}`}><img src={rightArrow} alt="" /></a>
 	</div>
 </div>

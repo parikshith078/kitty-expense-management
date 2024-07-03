@@ -34,7 +34,7 @@
 
 <style>
 	.pwa-padding {
-		padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+		margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
 			env(safe-area-inset-left) !important;
 	}
 </style>
