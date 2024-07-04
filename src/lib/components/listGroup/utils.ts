@@ -4,7 +4,7 @@ function getRoundedSignedAmount(
 	amount: number,
 	local: string = "en-IN",
 ) {
-	if (amount > 0) {
+	if (amount >= 0) {
 		return "+ ₹" + Math.round(amount).toLocaleString(local);
 	}
 	return "- ₹" + Math.round(Math.abs(amount)).toLocaleString(local);
