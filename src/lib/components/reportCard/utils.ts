@@ -17,10 +17,21 @@ export const sortTrascationByCatagory = (data: TranscationAndCategory[]) => {
 	return sorted;
 };
 
-export const getTotalAmount = (data: TranscationAndCategory[]) => {
+const getTotalAmount = (data: TranscationAndCategory[]) => {
 	let sum = 0;
 	data.forEach((val) => {
 		sum += val.amount;
 	});
-  return sum
+	return sum;
+};
+
+export const getSortedKeys = (
+	data: Record<string, TranscationAndCategory[]>,
+) => {
+	const sumList: [string, number][] = [];
+	for (const key in data) {
+		const sum = getTotalAmount(data[key]);
+		sumList.push([key, sum]);
+	}
+	return sumList.sort((a, b) => b[1] - a[1]);
 };

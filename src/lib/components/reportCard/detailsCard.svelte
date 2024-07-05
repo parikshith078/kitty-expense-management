@@ -1,23 +1,23 @@
 <script lang="ts">
 	import type { TranscationAndCategory } from '$lib/dbtypes'
 	import DetailsCardItem from './detailsCardItem.svelte'
-	import { getTotalAmount, sortTrascationByCatagory } from './utils'
+	import OverviewCard from './overviewCard.svelte'
+	import { sortTrascationByCatagory, getSortedKeys } from './utils'
 
 	export let transactionData: TranscationAndCategory[]
 
 	$: sorted = sortTrascationByCatagory(transactionData)
+	$: sortedKeys = getSortedKeys(sorted)
 </script>
 
-<div class="px-4 space-y-5">
+<div class="space-y-5 px-4">
 	<section>
 		<p
 			class="flex justify-between p-2 text-[10px] font-medium uppercase tracking-[1.5px] text-[#424242]"
 		>
 			Overview
 		</p>
-    <div class="w-full rounded-xl h-12 bg-red">
-
-    </div>
+    <OverviewCard data={sortedKeys} />
 	</section>
 
 	<section>
@@ -26,8 +26,8 @@
 		>
 			Details
 		</p>
-		{#each Object.entries(sorted) as [category, data]}
-			<DetailsCardItem transactionCount={data.length} amount={getTotalAmount(data)} {category} />
+		{#each sortedKeys as [category, amountSum]}
+			<DetailsCardItem transactionCount={sorted[category].length} amount={amountSum} {category} />
 		{/each}
 	</section>
 </div>
