@@ -3,7 +3,18 @@
 
 	// import { DevTools, Visualize } from '$lib/devtools'
 	import '../app.css'
-	import { Toaster } from 'svelte-french-toast'
+	import toast, { Toaster } from 'svelte-french-toast'
+    import { getFlash } from 'sveltekit-flash-message';
+  import { page } from '$app/stores';
+
+  const flash = getFlash(page);
+
+  $: if ($flash) {
+    switch ($flash.type) {
+      case"success":
+        toast.success($flash.message)
+    }
+  }
 
 	async function detectSWUpdate() {
 		const reg = await navigator.serviceWorker.ready

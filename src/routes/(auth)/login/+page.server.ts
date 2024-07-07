@@ -1,6 +1,7 @@
-import { fail, redirect, type Actions } from "@sveltejs/kit";
+import { fail, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "../login/$types";
 import prisma from "$lib/server/prisma";
+import { redirect } from "sveltekit-flash-message/server";
 
 import { verify } from "@node-rs/argon2";
 import { lucia } from "$lib/server/auth";
@@ -64,6 +65,10 @@ export const actions: Actions = {
 			...sessionCookie.attributes,
 		});
 
-		redirect(302, "/");
+		throw redirect(
+			"/",
+			{ type: "success", message: "You are now logged in." },
+			event,
+		);
 	},
 };

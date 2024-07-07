@@ -69,6 +69,9 @@ importers:
       svelte-check:
         specifier: ^3.6.0
         version: 3.8.4(postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2)))(postcss@8.4.38)(svelte@4.2.18)
+      sveltekit-flash-message:
+        specifier: ^2.4.4
+        version: 2.4.4(@sveltejs/kit@2.5.17(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9)))(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9)))(svelte@4.2.18)
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.4(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))
@@ -1687,6 +1690,12 @@ packages:
     resolution: {integrity: sha512-d0FdzYIiAePqRJEb90WlJDkjUEx42xhivxN8muUBmfZnP+tzUgz12DJ2hRJi8sIHCME7jeK1PTMgKPSfTd8JrA==}
     engines: {node: '>=16'}
 
+  sveltekit-flash-message@2.4.4:
+    resolution: {integrity: sha512-CFN03chH/FMEJcBZ/8zKm7RqGee/pwb57Spbbx8QCQPhe7N9ofZHd9iYV2vVy4E9glBo/oQ1IG7VQje6L092wg==}
+    peerDependencies:
+      '@sveltejs/kit': 1.x || 2.x
+      svelte: 3.x || 4.x || >=5.0.0-next.51
+
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
@@ -3279,6 +3288,11 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.10
       periscopic: 3.1.0
+
+  sveltekit-flash-message@2.4.4(@sveltejs/kit@2.5.17(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9)))(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9)))(svelte@4.2.18):
+    dependencies:
+      '@sveltejs/kit': 2.5.17(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9)))(svelte@4.2.18)(vite@5.3.2(@types/node@20.14.9))
+      svelte: 4.2.18
 
   tabbable@6.2.0: {}
 

@@ -1,10 +1,11 @@
 import { lucia } from "$lib/server/auth";
-import { fail, redirect, type Actions } from "@sveltejs/kit";
+import { fail, type Actions } from "@sveltejs/kit";
 import { hash } from "@node-rs/argon2";
 import { generateIdFromEntropySize } from "lucia";
 
 import prisma from "$lib/server/prisma";
 import type { PageServerLoad } from "./$types";
+import { redirect } from "sveltekit-flash-message/server";
 
 export const load: PageServerLoad = async (event) => {
 	if (event.locals.user) redirect(302, "/");
@@ -73,6 +74,10 @@ export const actions: Actions = {
 			...sessionCookie.attributes,
 		});
 
-		redirect(302, "/");
+		throw redirect(
+			"/",
+			{ type: "success", message: "Your account has been created successfully" },
+			event,
+		);
 	},
 };

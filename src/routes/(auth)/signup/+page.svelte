@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
 	import type { SubmitFunction } from '@sveltejs/kit'
-	import type { ActionData } from '../auth/$types'
 	import toast from 'svelte-french-toast'
 
-	export let form: ActionData
+	export let form 
 
 	const handelSubmit: SubmitFunction = ({ formData }) => {
 		const password = formData.get('password')
@@ -17,7 +16,6 @@
 			}
 			switch (result.type) {
 				case 'success':
-					toast.success('Signup successful!')
 					update()
 					break
 				case 'failure':

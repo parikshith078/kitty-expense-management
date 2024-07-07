@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
 	import toast from 'svelte-french-toast'
-	import type { ActionData, SubmitFunction } from '../auth/$types'
+	import type { SubmitFunction } from '../auth/$types'
 
-	export let form: ActionData
+	export let form
 
 	const handelSubmit: SubmitFunction = () => {
 		return async ({ update, result }) => {
 			switch (result.type) {
 				case 'success':
-					toast.success('Login successful!')
 					update()
 					break
 				case 'failure':
