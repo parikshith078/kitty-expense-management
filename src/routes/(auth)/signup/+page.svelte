@@ -1,15 +1,23 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
+	import type { SubmitFunction } from '@sveltejs/kit'
+	import type { ActionData } from '../auth/$types'
 	import toast from 'svelte-french-toast'
-	import type { ActionData, SubmitFunction } from '../auth/$types'
 
 	export let form: ActionData
 
-	const handelSubmit: SubmitFunction = () => {
+	const handelSubmit: SubmitFunction = ({ formData }) => {
+		const password = formData.get('password')
+		const repeatPassword = formData.get('repeatPassword')
+
 		return async ({ update, result }) => {
+			if (password !== repeatPassword) {
+				toast.error("Password don't match")
+				return
+			}
 			switch (result.type) {
 				case 'success':
-					toast.success('Login successful!')
+					toast.success('Signup successful!')
 					update()
 					break
 				case 'failure':
@@ -35,7 +43,7 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
 		<h2 class="text-gray-900 mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
-			Sign in to your account
+			Create account
 		</h2>
 	</div>
 
@@ -75,17 +83,30 @@
 			</div>
 
 			<div>
+				<div class="flex items-center justify-between">Repeat password</div>
+				<div class="mt-2">
+					<input
+						id="repeatPassword"
+						name="repeatPassword"
+						type="password"
+						autocomplete="current-password"
+						required
+						class="text-gray-900 ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 block w-full rounded-md border-0 px-1 py-1.5 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+					/>
+				</div>
+			</div>
+			<div>
 				<button
 					class="hover:bg-indigo-500 focus-visible:outline-indigo-600 flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-					>Sign in</button
+					>Create account</button
 				>
 			</div>
 		</form>
 
 		<p class="text-gray-500 mt-10 text-center text-sm">
-			Not a member?
-			<a href="/signup" class="text-indigo-600 hover:text-indigo-500 font-semibold leading-6"
-				>Create new account</a
+			Already a member?
+			<a href="/login" class="text-indigo-600 hover:text-indigo-500 font-semibold leading-6"
+				>Login</a
 			>
 		</p>
 	</div>
