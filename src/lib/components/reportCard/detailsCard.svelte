@@ -26,7 +26,7 @@
 		>
 			Details
 		</p>
-		{#each sortedKeys as [category, amountSum]}
+		{#each sortedKeys as [category, amountSum, _]}
 			<DetailsCardItem transactionCount={sorted[category].length} amount={amountSum} {category} />
 		{/each}
 	</section>

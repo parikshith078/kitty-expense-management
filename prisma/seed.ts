@@ -14,7 +14,7 @@ async function seedCategoryV2() {
 		{
 			name: "Fuel",
 			type: "EXPENSE",
-			theme: "#B2EBF2",
+			theme: "#D7CCC8",
 		},
 		{
 			name: "Education",
@@ -45,6 +45,13 @@ async function seedCategoryV2() {
 }
 
 async function main() {
+  // await prisma.catagory.deleteMany()
+		// .then(() => {
+		// 	console.log("Deleted");
+		// })
+		// .catch((err) => {
+		// 	console.log(err);
+		// });
 	await seedCategoryV2()
 		.then(() => {
 			console.log("Created");
