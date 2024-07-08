@@ -28,10 +28,11 @@ const getTotalAmount = (data: TranscationAndCategory[]) => {
 export const getSortedKeys = (
 	data: Record<string, TranscationAndCategory[]>,
 ) => {
-	const sumList: [string, number][] = [];
+	const sumList: [string, number, string][] = [];
 	for (const key in data) {
 		const sum = getTotalAmount(data[key]);
-		sumList.push([key, sum]);
+    const themeColor = data[key][0].catagory.themeColor
+		sumList.push([key, sum, themeColor]);
 	}
 	return sumList.sort((a, b) => b[1] - a[1]);
 };
