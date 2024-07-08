@@ -39,6 +39,7 @@ model Catagory {
   id          String                     @id @default(uuid())
   name        String
   type        TransactionAndCatagoryType
+  themeColor  String
   Transaction Transaction[]
 }
 

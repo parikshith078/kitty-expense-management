@@ -76,7 +76,10 @@ export const actions: Actions = {
 
 		throw redirect(
 			"/",
-			{ type: "success", message: "Your account has been created successfully" },
+			{
+				type: "success",
+				message: "Your account has been created successfully",
+			},
 			event,
 		);
 	},
