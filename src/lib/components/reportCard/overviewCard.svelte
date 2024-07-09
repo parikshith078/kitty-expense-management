@@ -7,7 +7,9 @@
 		const themeColors = data.map((item) => item[2])
 		return { shares: per, colors: themeColors }
 	}
-	const { shares, colors } = getPercentage(data)
+	$: compute = getPercentage(data)
+	$: shares = compute.shares
+	$: colors = compute.colors
 </script>
 
 <div class="flex h-12 w-full gap-0 overflow-hidden rounded-xl bg-gray">

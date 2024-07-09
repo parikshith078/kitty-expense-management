@@ -26,6 +26,11 @@
 		>
 			Details
 		</p>
+		{#if sortedKeys.length === 0}
+			<h1 class="py-4 text-center text-xl font-semibold tracking-wide text-primary">
+				No transcation found
+			</h1>
+		{/if}
 		{#each sortedKeys as [category, amountSum, _]}
 			<DetailsCardItem transactionCount={sorted[category].length} amount={amountSum} {category} />
 		{/each}
