@@ -1,3 +1,5 @@
-import ListGroup from './listGroup.svelte'
+import ListGroup from "./listGroup.svelte";
+import ListGroupItem from "./listItem.svelte";
 
-export default ListGroup
+export { ListGroupItem };
+export default ListGroup;
