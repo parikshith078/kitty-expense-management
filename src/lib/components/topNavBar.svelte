@@ -22,7 +22,7 @@
 	$: next = getMonthYear(nextMonth)
 	$: prev = getMonthYear(prevMonth)
 
-  $: isReport = $page.url.pathname.includes('/report') ? "/report" : ""
+	$: isReport = $page.url.pathname.includes('/report') ? '/report' : ''
 </script>
 
 <div class="container fixed flex w-full select-none flex-col gap-2 bg-backgound">
@@ -33,14 +33,18 @@
 		</a>
 		<div class="flex items-center gap-4">
 			<img class="aspect-square h-7" src={searchIcon} alt="" />
-			<Avatar.Root class="flex aspect-square h-10 items-center justify-center rounded-full bg-gray">
-				<Avatar.Image
-					class="rounded-full"
-					src="https://avatars.githubusercontent.com/u/90703086?v=4"
-					alt="profile"
-				/>
-				<Avatar.Fallback>P</Avatar.Fallback>
-			</Avatar.Root>
+			<a href="/settings">
+				<Avatar.Root
+					class="flex aspect-square h-10 items-center justify-center rounded-full bg-gray"
+				>
+					<Avatar.Image
+						class="rounded-full"
+						src="https://avatars.githubusercontent.com/u/90703086?v=4"
+						alt="profile"
+					/>
+					<Avatar.Fallback>P</Avatar.Fallback>
+				</Avatar.Root>
+			</a>
 		</div>
 	</div>
 	<div class="flex justify-between px-6 py-4">

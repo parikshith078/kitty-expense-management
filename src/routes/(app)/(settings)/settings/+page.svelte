@@ -27,35 +27,35 @@
 		</div>
 	</section>
 	<section class="mt-2 px-4">
-		<SettingsListItem href="/">
+		<SettingsListItem href="/settings/manage-categories">
 			<span slot="icon">
 				<Shapes class="aspect-square h-5 text-black" />
 			</span>
 			<span slot="title">Manage categories</span>
 		</SettingsListItem>
 
-		<SettingsListItem href="/">
+		<SettingsListItem href="/settings/export">
 			<span slot="icon">
 				<FileText class="aspect-square h-5 text-black" />
 			</span>
 			<span slot="title">Export to PDF</span>
 		</SettingsListItem>
 
-		<SettingsListItem href="/">
+		<SettingsListItem href="/settings/change-currency">
 			<span slot="icon">
 				<CircleDollarSign class="aspect-square h-5 text-black" />
 			</span>
 			<span slot="title">Choose currency</span>
 		</SettingsListItem>
 
-		<SettingsListItem href="/">
+		<SettingsListItem href="/faqs">
 			<span slot="icon">
 				<FileQuestion class="aspect-square h-5 text-black" />
 			</span>
 			<span slot="title">Frequently asked questions</span>
 		</SettingsListItem>
 
-		<SettingsListItem href="/">
+		<SettingsListItem href="/settings/change-password">
 			<span slot="icon">
 				<RectangleEllipsis class="aspect-square h-5 text-black" />
 			</span>

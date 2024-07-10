@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+	import { dev } from '$app/environment'
 
-	// import { DevTools, Visualize } from '$lib/devtools'
 	import '../app.css'
 	import toast, { Toaster } from 'svelte-french-toast'
-    import { getFlash } from 'sveltekit-flash-message';
-  import { page } from '$app/stores';
+	import { getFlash } from 'sveltekit-flash-message'
+	import { page } from '$app/stores'
 
-  const flash = getFlash(page);
+	const flash = getFlash(page)
 
-  $: if ($flash) {
-    switch ($flash.type) {
-      case"success":
-        toast.success($flash.message)
-    }
-  }
+	$: if ($flash) {
+		switch ($flash.type) {
+			case 'success':
+				toast.success($flash.message)
+		}
+	}
 
 	async function detectSWUpdate() {
 		const reg = await navigator.serviceWorker.ready
@@ -32,8 +32,11 @@
 			})
 		})
 	}
+
 	onMount(() => {
-		detectSWUpdate()
+		if (!dev) {
+			detectSWUpdate()
+		}
 	})
 </script>
 

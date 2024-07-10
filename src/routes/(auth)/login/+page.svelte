@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
+	import type { SubmitFunction } from '@sveltejs/kit'
 	import toast from 'svelte-french-toast'
-	import type { SubmitFunction } from '../auth/$types'
 
 	export let form
 
