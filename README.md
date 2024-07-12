@@ -1,38 +1,39 @@
-# create-svelte
+# Kitty
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+**Kitty** is a mobile-first budget tracking Progressive Web Application (PWA) and website. It is designed to help users manage their finances effortlessly on the go. Built with the powerful combination of SvelteKit and PostgreSQL, Kitty offers a smooth and efficient user experience.
 
-## Creating a project
+## Live Demo
 
-If you're seeing this, you've probably already done this step. Congrats!
+Check out the live site: [Kitty](https://kitty.parikshith.tech)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Mobile-first design for seamless use on smartphones and tablets.
+- Progressive Web Application functionality, allowing offline use and installation on your device.
+- Efficient budgeting and expense tracking to help you manage your finances.
+- Responsive interface that adapts to various screen sizes.
 
-## Developing
+## Tech Stack
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- **Framework**: SvelteKit
+- **Database**: PostgreSQL
 
-```bash
-npm run dev
+## Credits
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+The design of Kitty is based on templates from the Figma community. I extend my gratitude to the Figma community designers for their contributions.
 
-## Building
+## Status
 
-To create a production version of your app:
+Please note that Kitty is currently under active development and is not yet a complete product. I am continuously working on adding new features and improving the user experience. Stay tuned for updates!
 
-```bash
-npm run build
-```
+## Contributions
 
-You can preview the production build with `npm run preview`.
+I welcome contributions! If you have ideas, suggestions, or would like to report a bug, feel free to open an issue or submit a pull request.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## License
+
+This project is licensed under the MIT License. See the [License](https://opensource.org/license/mit) file for details.
+
+---
+
+Thank you for checking out Kitty! Your feedback and support are greatly appreciated.
