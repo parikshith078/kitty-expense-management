@@ -32,7 +32,9 @@
 			<h1 class="text-xl font-bold">Kitty</h1>
 		</a>
 		<div class="flex items-center gap-4">
-			<img class="aspect-square h-7" src={searchIcon} alt="" />
+			<a href="/search">
+				<img class="aspect-square h-7" src={searchIcon} alt="" />
+			</a>
 			<a href="/settings">
 				<Avatar.Root
 					class="flex aspect-square h-10 items-center justify-center rounded-full bg-gray"

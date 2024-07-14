@@ -3,7 +3,7 @@
 	import type { CategoryType } from '$lib/categoryTypes'
 	import type * as Prisma from '@prisma/client'
 
-	export let desc: string | null
+	export let desc: string | null = null
 	export let category: string
 	export let amount: number
 	export let transcationType: Prisma.TransactionAndCatagoryType
