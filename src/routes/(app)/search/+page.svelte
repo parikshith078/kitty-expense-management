@@ -1,11 +1,27 @@
 <script lang="ts">
 	import { ListGroupItem } from '$lib/components/listGroup/index.js'
-	import { ArrowLeftIcon, HeartPulse } from 'lucide-svelte'
+	import { ArrowLeftIcon } from 'lucide-svelte'
+	import type { PageServerData } from './$types'
+	import { getCatagoryIcon } from '$lib/categoryTypes'
+	import { formatDate } from '$lib/utils'
 
-	export let data
+	export let data: PageServerData
+
+	const getUniqueCategories = () => {
+		const categoryList: string[] = []
+		data.transactions.map((item) => {
+			if (!categoryList.includes(item.catagory.name)) {
+				categoryList.push(item.catagory.name)
+			}
+		})
+
+		return categoryList
+	}
+	let categoryList = getUniqueCategories()
+  // categoryList = categoryList.slice(0, 2)
 </script>
 
-<section class="border-b border-b-[#E0E0E0]">
+<section class="border-b bg-backgound fixed border-b-[#E0E0E0]">
 	<div class="flex gap-[14px] p-4">
 		<a href="/">
 			<ArrowLeftIcon />
@@ -16,26 +32,30 @@
 			placeholder="Search for notes, categories or labels"
 		/>
 	</div>
-	<div class="ml-14 flex gap-2 overflow-x-auto py-2">
-		{#each [1, 2, 3, 4, 5] as _}
+	<div class="ml-14 flex space-x-2 overflow-x-auto py-2">
+		{#each categoryList as category}
 			<div
-				class="inline-flex items-center gap-[6px] rounded-lg border border-[#BDBDBD] px-2 py-[6px] font-light text-[#424242]"
+				class="inline-flex flex-none items-center gap-[6px] rounded-lg border border-[#BDBDBD] px-2 py-[6px] font-light text-[#424242]"
 			>
-				<HeartPulse class="aspect-square h-5" />
-				<span>Health</span>
+        <img src={getCatagoryIcon(category)} class="h-6" alt="" />
+				<p>{category}</p>
 			</div>
 		{/each}
 	</div>
 </section>
 
-<section class="p-4 space-y-3">
+<section class="space-y-3 p-4 mt-28">
+  {#each data.transactions as transaction}
 	<div class="rounded-lg border border-[#E0E0E0] p-2">
 		<div
 			class="flex justify-between p-2 text-[10px] font-medium uppercase tracking-[1.5px] text-[#424242]"
 		>
-			<p>Today</p>
-			<p>- 500</p>
+			<p>{formatDate(transaction.createdAt)}</p>
+			<p>{transaction.amount}</p>
 		</div>
-		<ListGroupItem category="Transportation" amount={500} transcationType="EXPENSE" />
+		<ListGroupItem category={transaction.catagory.name} amount={transaction.amount} transcationType={transaction.type} />
 	</div>
+    
+  {/each}
+
 </section>

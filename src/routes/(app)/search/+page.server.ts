@@ -13,7 +13,7 @@ export const load: PageServerLoad = async (event) => {
 
 	const userId = event.locals.user.id;
 
-	const transactionData = await prisma.transaction.findMany({
+	const transactions = await prisma.transaction.findMany({
 		where: {
 			userId: userId,
 		},
@@ -22,5 +22,5 @@ export const load: PageServerLoad = async (event) => {
 		},
 	});
 
-	return { transactionData };
+	return { transactions };
 };
