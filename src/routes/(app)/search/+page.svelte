@@ -4,6 +4,8 @@
 	import type { PageServerData } from './$types'
 	import { getCatagoryIcon } from '$lib/categoryTypes'
 	import { formatDate } from '$lib/utils'
+	import { createSearchStore, searchHandler } from '$lib/searchStore'
+	import { onDestroy } from 'svelte'
 
 	export let data: PageServerData
 
@@ -18,10 +20,21 @@
 		return categoryList
 	}
 	let categoryList = getUniqueCategories()
-  // categoryList = categoryList.slice(0, 2)
+	const transactions = data.transactions.map((item) => ({
+		...item,
+		searchTerms: `${item.catagory.name} ${item.desc} ${item.amount}`
+	}))
+
+  const searchStore = createSearchStore(transactions)
+  const unsubscribe = searchStore.subscribe(model => searchHandler(model))
+
+  onDestroy(()=>{
+    unsubscribe()
+  })
+
 </script>
 
-<section class="border-b bg-backgound fixed border-b-[#E0E0E0]">
+<section class="fixed border-b border-b-[#E0E0E0] bg-backgound">
 	<div class="flex gap-[14px] p-4">
 		<a href="/">
 			<ArrowLeftIcon />
@@ -29,6 +42,7 @@
 		<input
 			type="text"
 			class="w-full outline-none"
+      bind:value={$searchStore.search}
 			placeholder="Search for notes, categories or labels"
 		/>
 	</div>
@@ -37,25 +51,28 @@
 			<div
 				class="inline-flex flex-none items-center gap-[6px] rounded-lg border border-[#BDBDBD] px-2 py-[6px] font-light text-[#424242]"
 			>
-        <img src={getCatagoryIcon(category)} class="h-6" alt="" />
+				<img src={getCatagoryIcon(category)} class="h-6" alt="" />
 				<p>{category}</p>
 			</div>
 		{/each}
 	</div>
 </section>
 
-<section class="space-y-3 p-4 mt-28">
-  {#each data.transactions as transaction}
-	<div class="rounded-lg border border-[#E0E0E0] p-2">
-		<div
-			class="flex justify-between p-2 text-[10px] font-medium uppercase tracking-[1.5px] text-[#424242]"
-		>
-			<p>{formatDate(transaction.createdAt)}</p>
-			<p>{transaction.amount}</p>
+<section class="mt-28 space-y-3 p-4">
+	{#each $searchStore.filtered as transaction}
+		<div class="rounded-lg border border-[#E0E0E0] p-2">
+			<div
+				class="flex justify-between p-2 text-[10px] font-medium uppercase tracking-[1.5px] text-[#424242]"
+			>
+				<p>{formatDate(transaction.createdAt)}</p>
+				<p>{transaction.amount}</p>
+			</div>
+			<ListGroupItem
+				category={transaction.catagory.name}
+				amount={transaction.amount}
+        desc={transaction.desc}
+				transcationType={transaction.type}
+			/>
 		</div>
-		<ListGroupItem category={transaction.catagory.name} amount={transaction.amount} transcationType={transaction.type} />
-	</div>
-    
-  {/each}
-
+	{/each}
 </section>
