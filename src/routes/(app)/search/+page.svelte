@@ -35,7 +35,7 @@
 	})
 </script>
 
-<section class="fixed border-b border-b-[#E0E0E0] bg-backgound">
+<section class="fixed container w-full border-b border-b-[#E0E0E0] bg-backgound">
 	<div class="flex gap-[14px] p-4">
 		<a href="/">
 			<ArrowLeftIcon />
