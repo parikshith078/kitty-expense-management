@@ -1,3 +1,3 @@
-import { loadFlash } from "sveltekit-flash-message/server";
+import { loadFlash } from 'sveltekit-flash-message/server'
 
-export const load = loadFlash(async () => {});
+export const load = loadFlash(async () => {})

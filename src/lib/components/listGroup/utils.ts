@@ -1,27 +1,27 @@
-import type { TranscationAndCategory } from "$lib/dbtypes";
+import type { TranscationAndCategory } from '$lib/dbtypes'
 
-function getRoundedSignedAmount(amount: number, local: string = "en-IN") {
+function getRoundedSignedAmount(amount: number, local: string = 'en-IN') {
 	if (amount == 0) {
-		return "₹" + amount.toString()
+		return '₹' + amount.toString()
 	}
 	if (amount > 0) {
-		return "+ ₹" + Math.round(amount).toLocaleString(local);
+		return '+ ₹' + Math.round(amount).toLocaleString(local)
 	}
-	return "- ₹" + Math.round(Math.abs(amount)).toLocaleString(local);
+	return '- ₹' + Math.round(Math.abs(amount)).toLocaleString(local)
 }
 
 export const getTodaysTotal = (data: TranscationAndCategory[]) => {
-	let income = 0;
-	let expense = 0;
+	let income = 0
+	let expense = 0
 
 	data.map((item) => {
-		if (item.type == "EXPENSE") {
-			expense += item.amount;
+		if (item.type == 'EXPENSE') {
+			expense += item.amount
 		} else {
-			income += item.amount;
+			income += item.amount
 		}
-	});
+	})
 
-	const total = income - expense;
-	return getRoundedSignedAmount(total);
-};
+	const total = income - expense
+	return getRoundedSignedAmount(total)
+}

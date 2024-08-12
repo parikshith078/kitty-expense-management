@@ -3,7 +3,7 @@
 	import type { SubmitFunction } from '@sveltejs/kit'
 	import toast from 'svelte-french-toast'
 
-	export let form 
+	export let form
 
 	const handelSubmit: SubmitFunction = ({ formData }) => {
 		const password = formData.get('password')

@@ -14,9 +14,11 @@
 <div class="h-full space-y-4">
 	<HomeStats {transactionData} />
 	<div class="mx-auto flex h-full w-[92%] flex-col gap-4">
-    <!-- TODO: Add a empty storyset image  -->
+		<!-- TODO: Add a empty storyset image  -->
 		{#if ordered.length === 0}
-			<h1 class="text-center text-xl font-semibold text-primary py-4 tracking-wide">No transcation found</h1>
+			<h1 class="py-4 text-center text-xl font-semibold tracking-wide text-primary">
+				No transcation found
+			</h1>
 		{/if}
 		{#each ordered as key}
 			<ListGroup transcationData={sortedData[parseInt(key)]} />

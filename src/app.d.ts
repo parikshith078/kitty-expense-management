@@ -4,15 +4,15 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			user: import("lucia").User | null;
-			session: import("lucia").Session | null;
+			user: import('lucia').User | null
+			session: import('lucia').Session | null
 		}
 		interface PageData {
-			flash?: { type: "success" | "error"; message: string };
+			flash?: { type: 'success' | 'error'; message: string }
 		}
 		// interface PageState {}
 		// interface Platform {}
 	}
 }
 
-export {};
+export {}

@@ -1,72 +1,71 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 // import { faker } from "@faker-js/faker";
 
-const prisma = new PrismaClient();
-
+const prisma = new PrismaClient()
 
 async function seedCategoryV2() {
 	const data = [
 		{
-			name: "Cafe",
-			type: "EXPENSE",
-			theme: "#FFECB3",
+			name: 'Cafe',
+			type: 'EXPENSE',
+			theme: '#FFECB3'
 		},
 		{
-			name: "Fuel",
-			type: "EXPENSE",
-			theme: "#D7CCC8",
+			name: 'Fuel',
+			type: 'EXPENSE',
+			theme: '#D7CCC8'
 		},
 		{
-			name: "Education",
-			type: "EXPENSE",
-			theme: "#F0F4C3",
+			name: 'Education',
+			type: 'EXPENSE',
+			theme: '#F0F4C3'
 		},
 		{
-			name: "Donate",
-			type: "EXPENSE",
-			theme: "#FFF9C4",
+			name: 'Donate',
+			type: 'EXPENSE',
+			theme: '#FFF9C4'
 		},
 		{
-			name: "Electronics",
-			type: "EXPENSE",
-			theme: "#FFCDD3",
-		},
-	];
+			name: 'Electronics',
+			type: 'EXPENSE',
+			theme: '#FFCDD3'
+		}
+	]
 
 	data.map(async (item) => {
 		await prisma.catagory.create({
 			data: {
 				name: item.name,
 				themeColor: item.theme,
-				type: "EXPENSE",
-			},
-		});
-	});
+				type: 'EXPENSE'
+			}
+		})
+	})
 }
 
 async function main() {
-  // await prisma.catagory.deleteMany()
-		// .then(() => {
-		// 	console.log("Deleted");
-		// })
-		// .catch((err) => {
-		// 	console.log(err);
-		// });
+	// await prisma.catagory.deleteMany()
+	// .then(() => {
+	// 	console.log("Deleted");
+	// })
+	// .catch((err) => {
+	// 	console.log(err);
+	// });
 	await seedCategoryV2()
 		.then(() => {
-			console.log("Created");
+			console.log('Created')
 		})
 		.catch((err) => {
-			console.log(err);
-		});
+			console.log(err)
+		})
 }
 
 main()
 	.then(async () => {
-		await prisma.$disconnect();
+		await prisma.$disconnect()
 	})
 	.catch(async (e) => {
-		console.error(e);
-		await prisma.$disconnect();
-		process.exit(1);
-	});
+		console.error(e)
+		await prisma.$disconnect()
+		process.exit(1)
+	})

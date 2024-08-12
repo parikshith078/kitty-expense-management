@@ -17,7 +17,7 @@
 		>
 			Overview
 		</p>
-    <OverviewCard data={sortedKeys} />
+		<OverviewCard data={sortedKeys} />
 	</section>
 
 	<section>

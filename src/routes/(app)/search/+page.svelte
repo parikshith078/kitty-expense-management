@@ -29,13 +29,12 @@
 	const searchStore = createSearchStore(transactions)
 	const unsubscribe = searchStore.subscribe((model) => searchHandler(model))
 
-
 	onDestroy(() => {
 		unsubscribe()
 	})
 </script>
 
-<section class="fixed container w-full border-b border-b-[#E0E0E0] bg-backgound">
+<section class="container fixed w-full border-b border-b-[#E0E0E0] bg-backgound">
 	<div class="flex gap-[14px] p-4">
 		<a href="/">
 			<ArrowLeftIcon />
@@ -47,11 +46,15 @@
 			placeholder="Search for notes, categories or labels"
 		/>
 	</div>
-	<ToggleGroup.Root bind:value={$searchStore.selectedCategories} type="multiple" class="ml-14 flex space-x-2 overflow-x-auto py-2">
+	<ToggleGroup.Root
+		bind:value={$searchStore.selectedCategories}
+		type="multiple"
+		class="ml-14 flex space-x-2 overflow-x-auto py-2"
+	>
 		{#each categoryList as category}
 			<ToggleGroup.Item
 				value={category}
-				class="inline-flex flex-none items-center data-[state=on]:border-blue data-[state=on]:bg-blue/25 gap-[6px] rounded-lg border border-[#BDBDBD] px-2 py-[6px] font-light text-[#424242]"
+				class="inline-flex flex-none items-center gap-[6px] rounded-lg border border-[#BDBDBD] px-2 py-[6px] font-light text-[#424242] data-[state=on]:border-blue data-[state=on]:bg-blue/25"
 			>
 				<img src={getCatagoryIcon(category)} class="h-6" alt="" />
 				<p>{category}</p>
