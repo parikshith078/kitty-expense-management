@@ -7,27 +7,10 @@ services:
       POSTGRES_PASSWORD: parikshithpalegar
       POSTGRES_DB: kitty
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./custom_pgdata:/var/lib/postgresql/data # Use a different path for the volume
     ports:
-      - '5432:5432' # Expose PostgreSQL to the host
-    networks:
-      - app-network
-
-  app:
-    build: .
-    container_name: svelte_app
-    ports:
-      - '3000:3000'
-    environment:
-      DATABASE_URL: 'postgresql://kitty:parikshithpalegar@localhost:5432/kitty'
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - '4321:5432' # Expose PostgreSQL to the host
 
 volumes:
   pgdata:
+    driver: local
